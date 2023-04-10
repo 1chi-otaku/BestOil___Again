@@ -16,6 +16,7 @@ namespace BestOil___Again
     {
         MainMenu MyMenu;
         MenuItem file_item, reset_item, exit_item, sub1_write;
+        ContextMenuStrip m;
         public double OilSumm { get; set; }
         public double CafeSumm { get; set; }
         public Form1()
@@ -39,9 +40,18 @@ namespace BestOil___Again
             exit_item.Click += new EventHandler(Quit);
             MyMenu.MenuItems.Add(exit_item);
 
+            m = new ContextMenuStrip();
+            m.Items.Add("Записать в файл");
+            m.Items.Add("Reset");
+            m.Items.Add("Quit");
 
+            m.Items[0].Click += new EventHandler(WriteToFile);
+            m.Items[0].Padding = new Padding(7);
+            m.Items[1].Click += new EventHandler(Reset);
+            m.Items[2].Click += new EventHandler(Quit);
+
+            ContextMenuStrip = m;
             Menu = MyMenu;
-
           
         }
 
