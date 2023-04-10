@@ -92,7 +92,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox1.Location = new System.Drawing.Point(18, 17);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(205, 281);
             this.groupBox1.TabIndex = 0;
@@ -156,7 +156,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(137, 41);
             this.label6.TabIndex = 0;
-            this.label6.Text = "000,000";
+            this.label6.Text = "0,00";
             // 
             // label5
             // 
@@ -282,7 +282,7 @@
             this.groupBox2.Controls.Add(this.checkBox2);
             this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox2.Location = new System.Drawing.Point(309, 17);
+            this.groupBox2.Location = new System.Drawing.Point(303, 27);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(205, 281);
             this.groupBox2.TabIndex = 1;
@@ -374,7 +374,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(137, 41);
             this.label11.TabIndex = 0;
-            this.label11.Text = "000,000";
+            this.label11.Text = "0,00";
             // 
             // label9
             // 
@@ -479,7 +479,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Location = new System.Drawing.Point(18, 358);
+            this.groupBox6.Location = new System.Drawing.Point(12, 368);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(152, 66);
             this.groupBox6.TabIndex = 9;
@@ -493,13 +493,13 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(137, 41);
             this.label12.TabIndex = 1;
-            this.label12.Text = "000,000";
+            this.label12.Text = "0,00";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 450);
+            this.ClientSize = new System.Drawing.Size(530, 461);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

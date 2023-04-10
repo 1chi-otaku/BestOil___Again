@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,34 @@ namespace BestOil___Again
 {
     public partial class Form1 : Form
     {
+        MainMenu MyMenu;
+        MenuItem file_item, reset_item, exit_item, sub1_write;
         public double OilSumm { get; set; }
         public double CafeSumm { get; set; }
         public Form1()
         {
             InitializeComponent();
             textBox1.Text = "0.00";
+
+            MyMenu = new MainMenu();
+
+            file_item= new MenuItem("File");
+            MyMenu.MenuItems.Add(file_item);
+            sub1_write = new MenuItem("Запись в файл");
+            sub1_write.Click += new EventHandler(WriteToFile);
+            file_item.MenuItems.Add(sub1_write);
+
+            reset_item = new MenuItem("Reset");
+            reset_item.Click += new EventHandler(Reset);
+            MyMenu.MenuItems.Add(reset_item);
+
+            exit_item = new MenuItem("Exit");
+            exit_item.Click += new EventHandler(Quit);
+            MyMenu.MenuItems.Add(exit_item);
+
+
+            Menu = MyMenu;
+
           
         }
 
@@ -113,6 +136,41 @@ namespace BestOil___Again
 
             CafeSumm = result;
             SetSumm();
+        }
+
+        private void Quit(object sender, EventArgs e)
+        {
+            Close();
+        }
+        private void Reset(object sender, EventArgs e)
+        {
+            checkBox1.Checked= false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            checkBox4.Checked = false;
+            radioButton1.Checked = false; 
+            radioButton2.Checked = false;
+            numericUpDown1.Text = "0";
+            numericUpDown2.Text = "0";
+        }
+        private void WriteToFile(object sender, EventArgs e)
+        {
+            string str = DateTime.Now.ToString() + ". Всего - " + label12.Text + " грн.";
+            if(comboBox1.SelectedIndex != -1 && (numericUpDown1.Value > 0 || numericUpDown2.Value > 0))
+                str += "\n" + comboBox1.Text + " - " + label6.Text + " грн.";
+            if (numericUpDown3.Value > 0)
+                str += "\nХот-дог - " + numericUpDown3.Value + " шт. - " + (Convert.ToDouble(textBox4.Text) * Convert.ToInt32(numericUpDown3.Value)) + " грн.";
+            if (numericUpDown4.Value > 0)
+                str += "\nГамбургер - " + numericUpDown4.Value + "шт. - " + (Convert.ToDouble(textBox5.Text) * Convert.ToInt32(numericUpDown4.Value)) + " грн.";
+            if (numericUpDown5.Value > 0)
+                str += "\nКартошка-фри - " + numericUpDown5.Value + "шт. - " + (Convert.ToDouble(textBox6.Text) * Convert.ToInt32(numericUpDown5.Value)) + " грн.";
+            if (numericUpDown6.Value > 0)
+                str += "\nКола - " + numericUpDown6.Value + "шт. - " + (Convert.ToDouble(textBox7.Text) * Convert.ToInt32(numericUpDown6.Value)) + " грн.";
+
+            StreamWriter writer = new StreamWriter("transactions.txt", true);
+            writer.Write(str+"\n\n");
+            writer.Close();
+
         }
     }
 }
